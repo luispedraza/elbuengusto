@@ -9,4 +9,23 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Elbuengusto::Application.config.secret_key_base = '59c8347cc7426d0ec81eea3adb4a41e35758b85f79a39b8b8aeb1fce344bb95f41e47a970cc544d7b895c99913764f108e0568a094947a96f432fc5f11a646a5'
+
+
+# Generación de token aleatorio
+require 'securerandom'
+
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+Elbuengusto::Application.config.secret_key_base = secure_token
