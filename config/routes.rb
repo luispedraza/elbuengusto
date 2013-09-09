@@ -1,7 +1,13 @@
 Elbuengusto::Application.routes.draw do
-  get "static/home"
-  get "static/help"
-  get "static/about"
+  # get "static/home"
+  # get "static/help"
+  # get "static/about"
+  # get "static/contact"
+  root "static#home"
+  match "/ayuda", to: "static#help", via: "get"
+  match "/acercade", to: "static#about", via: "get"
+  match "/contacto", to: "static#contact", via: "get"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
