@@ -1,0 +1,19 @@
+<% provide(:title, "Inicio de Sesión") %>
+<h1><%= yield(:title) %></h1>
+
+<div class="row">
+	<%= form_for(:session, url:sessions_path) do |f| %>
+	<li class="field">
+		<%= f.label :email %>
+		<%= f.text_field :email %>
+	</li>
+	<li class="field">
+		<%= f.label :password %>
+		<%= f.password_field :password %>
+	</li>
+	<li class="field">
+		<%= f.submit "Entrar", class: "btn xlarge primary" %>
+	</li>
+
+	<% end %>
+</div>

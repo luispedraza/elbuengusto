@@ -1,10 +1,24 @@
 <header>
 	<%= link_to "El Buen Gusto", '#', id: "logo" %>
 	<nav class="navbar pretty">
-		<ul class="nav pull-right">
+		<ul>
 			<li><%= link_to "Inicio", root_path %></li>
 			<li><%= link_to "Ayuda", ayuda_path %></li>
-			<li><%= link_to "Sign in", '#' %></li>
+			<% if signed_in? %>
+				<li><%= link_to "Users", '#' %></li>
+				<li class="dropdown">
+					<a href="#">Mi Cuenta</a>
+					<div class="dropdown">
+					<ul>
+						<li><%= link_to "Perfil", current_user %></li>
+						<li><%= link_to "Ajustes", '#' %></li>
+						<li><%= link_to "Salir", salir_path, method: "delete" %></li>
+					</ul>
+					</div>
+				</li>
+			<% else %>
+				<li><%= link_to "Entrar", entrar_path %></li>
+			<% end %>
 		</ul>
 	</nav>
 </header>

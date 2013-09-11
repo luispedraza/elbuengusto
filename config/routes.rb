@@ -4,14 +4,19 @@ Elbuengusto::Application.routes.draw do
   # get "static/about"
   # get "static/contact"
   root 'static#home'
-  match '/ayuda',     to: 'static#help',    via: 'get'
-  match '/acercade',  to: 'static#about',   via: 'get'
-  match '/contacto',  to: 'static#contact', via: 'get'
+  match '/ayuda',     to: 'static#help',        via: 'get'
+  match '/acercade',  to: 'static#about',       via: 'get'
+  match '/contacto',  to: 'static#contact',     via: 'get'
 
   # Usuarios
   resources :users
   # Registro de nuevos usuarios
-  match '/signup',    to: 'users#new',      via: 'get'
+  match '/registro',    to: 'users#new',        via: 'get'
+
+  # Sesiones
+  resources :sessions, only: [:new, :create, :destroy]
+  match '/entrar',      to: 'sessions#new',     via: 'get'
+  match '/salir',       to: 'sessions#destroy', via: 'delete'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

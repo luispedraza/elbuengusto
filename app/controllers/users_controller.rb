@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 		if @user.save
 			# El usuario se ha guardado bien
+			sign_in @user 	# Inicio de sesión tras el registro
 			flash[:ok] = "Bienvenido. Te has registrado correctamente."
 			redirect_to @user
 		else 
