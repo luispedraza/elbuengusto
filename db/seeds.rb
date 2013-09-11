@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# La cuenta de administrador por defecto
+User.create(	name: "admin", 
+				email: "admin@elbuengusto.com", 
+				password: "000000", 
+				password_confirmation: "000000", 
+				admin: true)

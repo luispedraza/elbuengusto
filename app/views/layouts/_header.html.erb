@@ -11,7 +11,7 @@
 					<div class="dropdown">
 					<ul>
 						<li><%= link_to "Perfil", current_user %></li>
-						<li><%= link_to "Ajustes", '#' %></li>
+						<li><%= link_to "Ajustes", edit_user_path(current_user) %></li>
 						<li><%= link_to "Salir", salir_path, method: "delete" %></li>
 					</ul>
 					</div>
