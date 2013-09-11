@@ -22,20 +22,24 @@ group :test do
 	gem 'capybara', '2.1.0'
 end
 
-# Use SCSS for stylesheets
-gem 'sass-rails', '4.0.0'
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+	# Use SCSS for stylesheets
+	# gem 'sass-rails',   '~> 3.2.3'
+	# gem 'compass-rails'
+	# gem 'modular-scale'
+	# Use CoffeeScript for .js.coffee assets and views
+	# gem 'coffee-rails'
+	# Use Uglifier as compressor for JavaScript assets
+	gem 'uglifier', '2.1.1'
+end
 
-# gem "modernizr-rails"
-# gem 'gumby-framework'
-
+gem "modernizr-rails"
+gem 'gumby-framework'
 # gem 'bootstrap-sass', '2.3.2.0'
 
 
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '2.1.1'
-
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
