@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+	# Cada usuario tiene muchas notificaciones, que son destruidas con el usuario 
+	has_many :notifications, dependent: :destroy
+
 	before_save {
 		self.email = email.downcase
 	}

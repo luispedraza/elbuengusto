@@ -5,6 +5,8 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
+		@notifications = @user.notifications
+		@new_notification = current_user.notifications.build if signed_in?
 	end
 
 	# Página de registro de un nuevo usuario
@@ -59,13 +61,6 @@ class UsersController < ApplicationController
 	end
 
 	# Before filters
-	def signed_in_user
-		unless signed_in?
-			store_location
-			redirect_to entrar_url, notice: "Por favor, inicia sesión"
-		end
-	end
-
 	def correct_user
 		@user = User.find(params[:id])
 		redirect_to(root_url) unless current_user?(@user)

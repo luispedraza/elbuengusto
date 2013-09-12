@@ -24,6 +24,13 @@ module SessionsHelper
 		user == current_user
 	end
 
+	def signed_in_user
+		unless signed_in?
+			store_location
+			redirect_to entrar_url, notice: "Por favor, inicia sesión"
+		end
+	end
+
 	# Cerrar sesión
 	def sign_out
 		self.current_user = nil
@@ -34,8 +41,10 @@ module SessionsHelper
 	# Friendly forwarding
 	def redirect_back_or(default)
 		redirect_to(session[:return_to] || default)
-		session.delete(:return_to)
+		session.delete(:return_to)	# se borra la variable de sesión
 	end
+
+	# Guarda en la sesión la url actual, para poder volver a ella
 	def store_location
 		session[:return_to] = request.url if request.get?
 	end

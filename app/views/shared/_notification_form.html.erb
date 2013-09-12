@@ -1,0 +1,10 @@
+<h2>Envío de notificación</h2>
+<p>El mensaje que escribas aquí será enviado a todos los usuarios de la aplicación</p>
+
+<%= form_for(@new_notification) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.text_area :content, placeholder: "Escribe una notificación…" %>
+  </div>
+  <%= f.submit "Enviar", class: "btn large primary" %>
+<% end %>

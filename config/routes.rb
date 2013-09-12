@@ -18,6 +18,9 @@ Elbuengusto::Application.routes.draw do
   match '/entrar',      to: 'sessions#new',     via: 'get'
   match '/salir',       to: 'sessions#destroy', via: 'delete'
 
+  # Notificaciones
+  resources :notifications, only: [:create, :destroy]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
