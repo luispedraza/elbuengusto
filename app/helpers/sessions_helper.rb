@@ -48,4 +48,16 @@ module SessionsHelper
 	def store_location
 		session[:return_to] = request.url if request.get?
 	end
+
+	# Identificador del carro de la compra del usuario
+	def current_cart
+		# Buscamos el carro de la compra utilizando la variable de sessión 
+		Cart.find(session[:cart_id])
+		rescue ActiveRecord::RecordNotFound
+			cart = Cart.create	# Creamos un nuevo carro de la compra
+			session[:cart_id] = cart.id
+			cart
+		end
+	end
+
 end

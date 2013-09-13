@@ -1,4 +1,8 @@
 Elbuengusto::Application.routes.draw do
+  resources :cart_items
+
+  resources :carts
+
   # get "store/index"       # Página principal de la tienda que ven los usuarios
   get '/tienda',    to: 'store#index',          as: 'store'
 
