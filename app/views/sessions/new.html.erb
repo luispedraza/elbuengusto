@@ -1,19 +1,24 @@
 <% provide(:title, "Inicio de Sesión") %>
+
 <h1><%= yield(:title) %></h1>
 
-<div class="row">
-	<%= form_for(:session, url:sessions_path) do |f| %>
-	<li class="field">
-		<%= f.label :email %>
-		<%= f.text_field :email %>
-	</li>
-	<li class="field">
-		<%= f.label :password %>
-		<%= f.password_field :password %>
-	</li>
-	<li class="field">
-		<%= f.submit "Entrar", class: "btn xlarge primary" %>
-	</li>
-
-	<% end %>
-</div>
+<%= form_for(:session, url:sessions_path) do |f| %>
+	<div class="row">
+	<div class="large-4 columns">
+	<fieldset>
+	<legend>Inicio de sesión</legend>
+		<div class="row">
+			<%= f.label :email, "Correo electrónico" %>
+			<%= f.text_field :email %>
+		</div>
+		<div class="row">
+			<%= f.label :password, "Contraseña" %>
+			<%= f.password_field :password %>
+		</div>
+		<div class="row">
+			<%= f.submit "Entrar", class: "btn xlarge primary" %>
+		</div>
+	</fieldset>
+	</div>
+	</div>
+<% end %>

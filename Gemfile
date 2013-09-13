@@ -31,9 +31,15 @@ gem 'coffee-rails', '4.0.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '2.1.1'
 
-gem "modernizr-rails"
-gem 'gumby-framework'
+# Gumby
+# gem "modernizr-rails"
+# gem 'gumby-framework'
+
+# Bootstrap
 # gem 'bootstrap-sass', '2.3.2.0'
+
+# Foundation
+gem 'zurb-foundation'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
