@@ -13,4 +13,8 @@ class Cart < ActiveRecord::Base
 		end
 		current_item												# devolvemos el producto del carrito
 	end
+
+	def total_price
+		cart_items.to_a.sum {|item| item.total_price}
+	end
 end

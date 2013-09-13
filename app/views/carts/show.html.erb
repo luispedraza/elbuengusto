@@ -6,9 +6,13 @@
 <%= link_to 'Seguir comprando', store_url %>
 <ul>
 	<% @cart.cart_items.each do |item| %>
-	<li><%= item.product.name %> (<%= item.quantity %> unidades) </li>
+	<li><%= item.product.name %> (<%= item.quantity %> unidades) 
+		<div>Valor: <%= number_to_currency(item.total_price) %> </div>
+	</li>
 	<% end %>
 </ul>
+
+<div>Total: <%= number_to_currency(@cart.total_price) %></div>
 <!--
 <%= link_to 'Edit', edit_cart_path(@cart) %> |
 <%= link_to 'Back', carts_path %>
