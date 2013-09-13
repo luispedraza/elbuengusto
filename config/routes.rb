@@ -1,4 +1,6 @@
 Elbuengusto::Application.routes.draw do
+  resources :products
+
   # get "static/home"
   # get "static/help"
   # get "static/about"
