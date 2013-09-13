@@ -1,0 +1,14 @@
+<% if notice %>
+<div id="notice"> <%= notice %> </div>
+<% end %>
+
+<h1>La tienda de El Buen Gusto</h1>
+
+<% @products.each do |p| %>
+<div class="item">
+	<%= image_tag p.image_url %>
+	<h3> <%= p.name %> </h3>
+	<%= sanitize p.description %>
+	<div class="price"> <%= number_to_currency p.price, unit: '€' %> </div>
+</div>
+<% end %>
