@@ -17,7 +17,7 @@ module SessionsHelper
 
 	def current_user
 		remember_token = User.encrypt(cookies[:remember_token])
-    	@current_user ||= User.find_by(remember_token: remember_token)
+		@current_user ||= User.find_by(remember_token: remember_token)
 	end
 
 	def current_user?(user)
@@ -53,11 +53,10 @@ module SessionsHelper
 	def current_cart
 		# Buscamos el carro de la compra utilizando la variable de sessión 
 		Cart.find(session[:cart_id])
-		rescue ActiveRecord::RecordNotFound
-			cart = Cart.create	# Creamos un nuevo carro de la compra
-			session[:cart_id] = cart.id
-			cart
-		end
+	rescue ActiveRecord::RecordNotFound
+		cart = Cart.create	# Creamos un nuevo carro de la compra
+		session[:cart_id] = cart.id
+		cart
 	end
 
 end
