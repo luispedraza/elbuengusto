@@ -4,7 +4,7 @@
 
 <ul>
 	<% @cart.cart_items.each do |item| %>
-	<li><%= item.product.name %></li>
+	<li><%= item.product.name %> (<%= item.quantity %> unidades) </li>
 	<% end %>
 </ul>
 <!--
