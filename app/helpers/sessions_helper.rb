@@ -59,4 +59,8 @@ module SessionsHelper
 		cart
 	end
 
+	def clear_cart
+		session[:cart_id] = nil
+	end
+
 end

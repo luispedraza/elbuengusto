@@ -2,6 +2,8 @@
 
 <h2>Tu carro de la compra</h2>
 
+<%= button_to 'Vaciar el carrito',  @cart,  method: :delete, confirm: '¿Confirmas que quieres vaciar el carrito?' %>
+<%= link_to 'Seguir comprando', store_url %>
 <ul>
 	<% @cart.cart_items.each do |item| %>
 	<li><%= item.product.name %> (<%= item.quantity %> unidades) </li>

@@ -55,8 +55,9 @@ class CartsController < ApplicationController
   # DELETE /carts/1.json
   def destroy
     @cart.destroy
+    clear_cart
     respond_to do |format|
-      format.html { redirect_to carts_url }
+      format.html { redirect_to store_url, notice: 'El carrito está vacío' }
       format.json { head :no_content }
     end
   end
@@ -65,15 +66,11 @@ class CartsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_cart
       begin
-        @cart = Cart.find(params[:id])
+        # @cart = Cart.find(params[:id])
+        @cart = current_cart  # Utilizamos el carrito de la sesión
       rescue ActiveRecord::RecordNotFound # si no existe…
         logger.error "Se intentó acceder a un Cart no válido, id: #{params[:id]}"
         redirect_to store_url, notice: "El carrito no existe"
-      else 
-        respond_to do |format|
-          format.html # show.html.erb
-          format.json {render json: @cart}
-        end
       end
     end
 
