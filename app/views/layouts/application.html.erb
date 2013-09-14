@@ -15,8 +15,8 @@
 
  <title><%= full_title(yield(:title)) %></title>
 
- <%= stylesheet_link_tag    "application" %>
- <%= javascript_include_tag "vendor/custom.modernizr" %>
+ <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+ <%= javascript_include_tag "vendor/custom.modernizr", "data-turbolinks-track" => true %>
  <%= csrf_meta_tags %>
  <%= render 'layouts/shim' %>
 </head>
@@ -50,6 +50,6 @@
     <% end %>
   </div><!-- wrapper -->
   
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true  %>
 </body>
 </html>
