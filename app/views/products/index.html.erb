@@ -16,7 +16,12 @@
       <tr>
         <td><%= product.name %></td>
         <td><%= product.description %></td>
-        <td><%= image_tag product.image_url %></td>
+        <td>
+          <%= image_tag product.image_url %>
+          <% product.product_images.each do |photo| %>
+          <%= image_tag photo.photo.url(:small) %>
+          <% end %>
+        </td>
         <td><%= product.price %></td>
         <td>
           <%= link_to 'Ver', product %>

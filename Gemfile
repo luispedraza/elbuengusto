@@ -41,6 +41,10 @@ gem 'uglifier', '2.1.1'
 # Foundation
 gem 'zurb-foundation'
 
+# Imágenes de productos con paperclip
+# gem "paperclip", "~> 2.7"
+gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

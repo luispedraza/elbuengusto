@@ -26,4 +26,7 @@ Elbuengusto::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  # Para que funciona peperclip
+  Paperclip.options[:command_path] = "/opt/local/bin/"
 end

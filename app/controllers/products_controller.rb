@@ -15,10 +15,14 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
+    3.times { @product.product_images.build } # Imágenes asociadas a un producto (hasta 3)
+    # @product.product_images.build
   end
 
   # GET /products/1/edit
   def edit
+    @product = Product.find(params[:id])
+    3.times { @product.product_images.build }
   end
 
   # POST /products
@@ -28,7 +32,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
+        format.html { redirect_to @product, notice: 'El producto se ha creado: #{@product.name}' }
         format.json { render action: 'show', status: :created, location: @product }
       else
         format.html { render action: 'new' }
@@ -42,7 +46,7 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
+        format.html { redirect_to @product, notice: 'El producto se ha actualizado' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -69,6 +73,7 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :description, :image_url, :price)
+      # params[:product]
+      params.require(:product).permit(:name, :description, :image_url, :price, product_images_attributes: [:caption, :photo])
     end
 end

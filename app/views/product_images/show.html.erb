@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cation:</strong>
+  <%= @product_image.cation %>
+</p>
+
+<p>
+  <strong>String:</strong>
+  <%= @product_image.string %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @product_image.product_id %>
+</p>
+
+<p>
+  <strong>Integer:</strong>
+  <%= @product_image.integer %>
+</p>
+
+<%= link_to 'Edit', edit_product_image_path(@product_image) %> |
+<%= link_to 'Back', product_images_path %>
