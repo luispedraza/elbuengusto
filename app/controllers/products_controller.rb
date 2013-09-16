@@ -44,6 +44,9 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
+    # Para poder eliminar un producto de todas las categorías
+    params[:product][:category_ids] ||= []
+
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'El producto se ha actualizado' }
@@ -73,6 +76,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :description, :image_url, :price, product_images_attributes: [:caption, :photo])
+      params.require(:product).permit(:name, :description, :price, product_images_attributes: [:caption, :photo], category_ids: [])
     end
 end

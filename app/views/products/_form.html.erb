@@ -48,6 +48,12 @@
       <div class="row" id="product-categories">
         <h3>Categorías</h3>
         <p>Listado de categorías</p>
+        <% for category in Category.all %>
+        <div class="row">
+          <%= check_box_tag "product[category_ids][]", category.id, @product.categories.include?(category) %>
+          <%= category.name %>
+        </div>
+        <% end %>
       </div>
       <div class="row" id="product-tags">
         <h3>Etiquetas</h3>

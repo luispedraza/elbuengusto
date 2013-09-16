@@ -1,7 +1,9 @@
 class Product < ActiveRecord::Base
+	# Relaciones con las categorías
+	has_and_belongs_to_many :categories
 	# Relaciones con las imágenes de producto 
 	has_many :product_images, :dependent => :destroy
-	accepts_nested_attributes_for :product_images, 
+	accepts_nested_attributes_for :product_images,
 		reject_if: :reject_image,
 		allow_destroy: true
 	# Relaciones con otras tablas
@@ -15,7 +17,7 @@ class Product < ActiveRecord::Base
 	# Precio mínimo, para que no haya precios nulos
 	validates :price, numericality: { greater_than_or_equal_to: 0.01 }
 	# Unicidad del nombre del producto
-	validates :name, uniqueness: true					
+	validates :name, uniqueness: true
 
 	private
 	# Función de ayuda para comprobar que no hay productos pendientes de pedido
