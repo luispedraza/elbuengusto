@@ -17,8 +17,6 @@ class Product < ActiveRecord::Base
 	# Unicidad del nombre del producto
 	validates :name, uniqueness: true					
 
-
-
 	private
 	# Función de ayuda para comprobar que no hay productos pendientes de pedido
 	# antes de eliminarlos de la base de datos

@@ -1,67 +1,67 @@
-<div class="row">
-  <!-- Columna izquierda -->
-  <div class="small-1 large-8 columns">
-    <div class="row" id="product-fields">
-      <h3>Información de producto</h3>
-      <%= form_for @product, :html => {:multipart => true} do |f| %>
-      <% if @product.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+<div class="row" id="product-form">
 
-        <ul>
-          <% @product.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
+  <%= form_for @product, :html => {:multipart => true} do |f| %>
+
+  <% if @product.errors.any? %>
+  <div class="row" id="error_explanation">
+    <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+    <ul>
+      <% @product.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
       <% end %>
-
-      <div class="field">
-        <%= f.label :name, "Nombre" %><br>
-        <%= f.text_field :name %>
-      </div>
-      <div class="field">
-        <%= f.label :description, "Descripción" %><br>
-        <%= f.text_area :description, rows: 5 %>
-      </div>
-      <div class="field">
-        <%= f.label :image_url %><br>
-        <%= f.text_field :image_url %>
-      </div>
-      <div class="field">
-        <%= f.label :price %><br>
-        <%= f.text_field :price %>
-      </div>
-    </div>
-
-    <div class="row" id="product-images">
-      <h3>Imágenes del producto</h3>
-      <%= f.fields_for :product_images do |builder| %>
-      <%= render 'product_image_fields', f: builder %>
-      <% end %>
-
-      <%= link_to_add_fields "Agregar Imagen", f, :product_images %>
-    </div><!-- #images -->
+    </ul>
   </div>
+  <% end %>
 
-  <!-- Columna derecha -->
-  <div class="small-1 large-4 columns">
-    <div class="row" id="product-categories">
-      <h3>Categorías</h3>
-      <p>Listado de categorías</p>
+  <div class="row">
+    <!-- Columna izquierda -->
+    <div class="large-8 columns">
+      <div class="row" id="product-fields">
+        <h3>Información de producto</h3>
+        <div class="field">
+          <%= f.label :name, "Nombre" %><br>
+          <%= f.text_field :name %>
+        </div>
+        <div class="field">
+          <%= f.label :description, "Descripción" %><br>
+          <%= f.text_area :description, rows: 5 %>
+        </div>
+        <div class="field">
+          <%= f.label :price %><br>
+          <%= f.text_field :price %>
+        </div>
+      </div>
+
+      <div class="row" id="product-images">
+        <h3>Imágenes del producto</h3>
+        <%= f.fields_for :product_images do |builder| %>
+        <%= render 'product_image_fields', f: builder %>
+        <% end %>
+
+        <%= link_to_add_fields "Agregar Imagen", f, :product_images %>
+      </div><!-- #images -->
     </div>
-    <div class="row" id="product-tags">
-      <h3>Etiquetas</h3>
-      <p>Selección de etiquetas</p>
-    </div>
-    <div class="row" id="product-seo">
-      <h3>SEO</h3>
-      <p>Opciones de SEO</p>
-    </div>
+
+    <!-- Columna derecha -->
+    <div class="large-4 columns">
+      <div class="row" id="product-categories">
+        <h3>Categorías</h3>
+        <p>Listado de categorías</p>
+      </div>
+      <div class="row" id="product-tags">
+        <h3>Etiquetas</h3>
+        <p>Selección de etiquetas</p>
+      </div>
+      <div class="row" id="product-seo">
+        <h3>SEO</h3>
+        <p>Opciones de SEO</p>
+      </div>
+    </div><!-- Fin Columna derecha -->
   </div>
 
   <div class="row" id="actions">
-    <%= f.submit "Aceptar", class: "button" %>
+    <%= f.submit "Aceptar todos los cambios", class: "button" %>
   </div>
   <% end %>
 

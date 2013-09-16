@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
-    3.times { @product.product_images.build } # Imágenes asociadas a un producto (hasta 3)
+    0.times { @product.product_images.build } # Imágenes asociadas a un producto (hasta 3)
     # @product.product_images.build
   end
 
