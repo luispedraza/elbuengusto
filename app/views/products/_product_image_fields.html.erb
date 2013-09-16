@@ -1,0 +1,8 @@
+<div class=<%= f.object.new_record? ? "image_field new" : "image_field" %> >
+<%= f.label :caption, "Descripción de Imagen" %>
+<%= f.text_field :caption %>
+<%= f.label :photo, "Archivo de Imagen" %>
+<%= f.file_field :photo %>
+
+<%= link_to_remove_fields "Borrar", f %>
+</div>

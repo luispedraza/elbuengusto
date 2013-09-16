@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
   # GET /products/1/edit
   def edit
     @product = Product.find(params[:id])
-    3.times { @product.product_images.build }
+    # 3.times { @product.product_images.build }
   end
 
   # POST /products
@@ -73,7 +73,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      # params[:product]
       params.require(:product).permit(:name, :description, :image_url, :price, product_images_attributes: [:caption, :photo])
     end
 end

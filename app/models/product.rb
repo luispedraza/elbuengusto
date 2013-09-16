@@ -1,7 +1,9 @@
 class Product < ActiveRecord::Base
 	# Relaciones con las imágenes de producto 
 	has_many :product_images, :dependent => :destroy
-	accepts_nested_attributes_for :product_images, reject_if: :reject_image
+	accepts_nested_attributes_for :product_images, 
+		reject_if: :reject_image,
+		allow_destroy: true
 	# Relaciones con otras tablas
 	has_many :cart_items
 	# Antes de destruirlo comprobamos que no está referenciado por un elemento en pedido
