@@ -1,4 +1,5 @@
 class CartItem < ActiveRecord::Base
+	belongs_to :order
 	belongs_to :product
 	belongs_to :cart
 
@@ -6,5 +7,3 @@ class CartItem < ActiveRecord::Base
 		product.price * quantity
 	end
 end
-
-

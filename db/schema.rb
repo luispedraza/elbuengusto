@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20130917152154) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "quantity",   default: 1
-    t.integer  "oder_id"
+    t.integer  "order_id"
   end
 
   create_table "carts", force: true do |t|

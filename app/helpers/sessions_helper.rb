@@ -59,6 +59,12 @@ module SessionsHelper
 		cart
 	end
 
+	# Elimina el carrito actual
+	def destroy_cart
+		Cart.destroy session[:cart_id]
+		session.delete :cart_id
+	end
+
 	def clear_cart
 		session[:cart_id] = nil
 	end

@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
       redirect_to store_url, notice: "El carrito está vacío"
       return
     end
-    
+
     @order = Order.new
   end
 
@@ -33,9 +33,12 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
 
+    @order.add_cart_items(current_cart) # agregamos los productos
+
     respond_to do |format|
       if @order.save
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
+        destroy_cart  # Método definido en sessions_helper.rb destruye el carrito actual
+        format.html { redirect_to store_url, notice: 'Gracias por tu pedido' }
         format.json { render action: 'show', status: :created, location: @order }
       else
         format.html { render action: 'new' }
@@ -69,6 +72,7 @@ class OrdersController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_order
       @order = Order.find(params[:id])
