@@ -2,17 +2,20 @@
 
 <h2>Tu carro de la compra</h2>
 
-<%= button_to 'Vaciar el carrito',  @cart,  method: :delete, confirm: '¿Confirmas que quieres vaciar el carrito?' %>
-<%= link_to 'Seguir comprando', store_url %>
-<ul>
-	<% @cart.cart_items.each do |item| %>
-	<li><%= item.product.name %> (<%= item.quantity %> unidades) 
-		<div>Valor: <%= number_to_currency(item.total_price) %> </div>
-	</li>
-	<% end %>
-</ul>
 
-<div>Total: <%= number_to_currency(@cart.total_price) %></div>
+<table id="cart">
+	<% @cart.cart_items.each do |item| %>
+	<tr>
+		<td><%= item.quantity %></td><td><%= item.product.name %></td><td><%= number_to_currency(item.total_price) %></td>
+	</tr>
+	<% end %>
+	<tr class="total"><td></td><td>Total:</td><td><%= number_to_currency(@cart.total_price) %></td></tr>
+</table>
+
+
+<%= button_to 'Vaciar el carrito',  @cart,  method: :delete, confirm: '¿Confirmas que quieres vaciar el carrito?', class: "button" %>
+<%= link_to 'Seguir comprando', store_url, class: "button" %>
+
 <!--
 <%= link_to 'Edit', edit_cart_path(@cart) %> |
 <%= link_to 'Back', carts_path %>
