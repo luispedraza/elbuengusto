@@ -38,6 +38,9 @@ class OrdersController < ApplicationController
     respond_to do |format|
       if @order.save
         destroy_cart  # Método definido en sessions_helper.rb destruye el carrito actual
+
+        OrderMailer.confirmation(@order).deliver
+
         format.html { redirect_to store_url, notice: 'Gracias por tu pedido' }
         format.json { render action: 'show', status: :created, location: @order }
       else

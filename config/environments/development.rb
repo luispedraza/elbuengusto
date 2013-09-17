@@ -31,9 +31,11 @@ Elbuengusto::Application.configure do
   Paperclip.options[:command_path] = "/opt/local/bin/"
 
   # Servidor de correo en desarrollo
-  config.action_mailer.delivery_method = :sendmail
-  config.action_mailer.perform_deliveries = true
+  # config.action_mailer.delivery_method = :sendmail
+  # config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_options = {from: 'no-replay@example.com'}
+  # config.action_mailer.default_options = {from: 'no-replay@example.com'}
+
+
 
 end

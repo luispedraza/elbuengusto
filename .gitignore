@@ -27,3 +27,4 @@ doc/
 
 #Ignorar imágenes de productos y categorías
 /public/system/*
+/init_env_vars.sh

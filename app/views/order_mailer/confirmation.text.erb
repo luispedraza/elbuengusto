@@ -1,3 +1,11 @@
-OrderMailer#confirmation
+Confirmación de pedido
 
-<%= @greeting %>, find me in app/views/app/views/order_mailer/confirmation.text.erb
+Gracias por tu pedido a la pastelería "El Buen Gusto"
+Te informamos de que hemos recibido tu pedido, y en breve comenzaremos a prepararlo.
+Recibirás una confirmación cuando todo esté listo, y puedas pasar a recogerlo por nuestra tienda.
+
+Nombre del cliente: <%= @order.name %>
+
+Artículos incluidos en el pedido:
+
+<%= render @order.cart_items %>
