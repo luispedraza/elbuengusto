@@ -1,4 +1,6 @@
 Elbuengusto::Application.routes.draw do
+  resources :orders
+
   resources :categories
 
   resources :product_images

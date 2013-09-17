@@ -10,4 +10,4 @@
 
 
 <%= button_to 'Vaciar el carrito',  cart,  method: :delete, confirm: '¿Confirmas que quieres vaciar el carrito?', class: "button" %>
-<%= link_to 'Seguir comprando', store_url, class: "button" %>
+<%= button_to 'Realizar el pedido',  new_order_path,  method: :get, class: "button" %>
