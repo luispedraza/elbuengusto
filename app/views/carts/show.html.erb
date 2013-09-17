@@ -4,11 +4,7 @@
 
 
 <table id="cart">
-	<% @cart.cart_items.each do |item| %>
-	<tr>
-		<td><%= item.quantity %></td><td><%= item.product.name %></td><td><%= number_to_currency(item.total_price) %></td>
-	</tr>
-	<% end %>
+	<%= render @cart.cart_items %>
 	<tr class="total"><td></td><td>Total:</td><td><%= number_to_currency(@cart.total_price) %></td></tr>
 </table>
 
