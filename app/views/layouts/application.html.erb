@@ -29,13 +29,20 @@
     <div class="wrapper">
       <div class="row">
         <% flash.each do |key, value| %>
-        <div class="primary badge alert-<%= key %>"><%= value %></div>
+        <div class="alert-<%= key %>"><%= value %></div>
         <% end %>
       </div>
     </div>
 
 
     <div class="wrapper">
+
+      <% if @cart %>
+      <div id="cart_detail">
+        <%= render @cart %>
+      </div>
+      <% end %>
+      
       <div class="row">
         <%= yield %>
       </div>
