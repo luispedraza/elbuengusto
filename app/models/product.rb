@@ -31,6 +31,7 @@ class Product < ActiveRecord::Base
 	end
 
 	def reject_image(attrib)
-		attrib['caption'].blank? || attrib['photo'].nil?
+		# attrib['caption'].blank? || attrib['photo'].nil?
+		attrib['photo'].nil?
 	end
 end
