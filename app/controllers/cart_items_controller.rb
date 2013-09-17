@@ -35,7 +35,9 @@ class CartItemsController < ApplicationController
     respond_to do |format|
       if @cart_item.save
         # format.html { redirect_to @cart_item, notice: 'Cart item was successfully created.' }
-        format.html { redirect_to @cart_item.cart, notice: 'El producto se ha añadido al carro' }
+        # format.html { redirect_to @cart_item.cart, notice: 'El producto se ha añadido al carro' }
+        format.html { redirect_to store_url }
+        format.js { @last_item = @cart_item }
         format.json { render action: 'show', status: :created, location: @cart_item }
       else
         format.html { render action: 'new' }
