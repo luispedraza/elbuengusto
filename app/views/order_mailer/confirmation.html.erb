@@ -13,5 +13,8 @@
 	<table>
 		<%= render @order.cart_items %>
 	</table>
+
+	<p>Puedes mostrar este código en nuestra tienda para agilizar la recogida de tu pedido</p>
+	<%= image_tag "https://chart.googleapis.com/chart?cht=qr&chs=250x250&chl=http://www.elbuengusto.com" %>
 </body>
 </html>
