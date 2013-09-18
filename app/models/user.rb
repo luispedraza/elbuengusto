@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+	# Avatar de usuario
+	has_attached_file :avatar
 	# Cada usuario tiene muchas notificaciones, que son destruidas con el usuario 
 	has_many :notifications, dependent: :destroy
 

@@ -25,6 +25,8 @@
 				<%= f.label :password_confirmation, "Confirmación" %>
 				<%= f.password_field :password_confirmation, class: "password" %>
 			</li>
+			<li>
+				<%= f.file_field :avatar %>
 			<%= f.submit "Crea mi cuenta", class: "medium default btn" %>
 		</ul>
 		<% end %>
