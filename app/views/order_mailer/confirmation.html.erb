@@ -1,8 +1,17 @@
-<h2>Gracias por tu pedido a "El Buen Gusto"</h2>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
 
-<p>Hemos recibido tu pedido, y en breve comenzaremos su preparación. Recibirás un correo de aviso cuando todo esté listo para que pases a recogerlo por nuestra tienda</p>
+	<h2>Gracias por tu pedido a "El Buen Gusto"</h2>
 
-<h3>Detalles de tu pedido</h3>
-<table>
-	<%= render @order.cart_items %>
-</table>
+	<p>Hemos recibido tu pedido, y en breve comenzaremos su preparación. Recibirás un correo de aviso cuando todo esté listo para que pases a recogerlo por nuestra tienda</p>
+
+	<h3>Detalles de tu pedido</h3>
+	<table>
+		<%= render @order.cart_items %>
+	</table>
+</body>
+</html>
