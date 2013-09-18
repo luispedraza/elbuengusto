@@ -7,7 +7,7 @@ class OrderMailer < ActionMailer::Base
   #
 
   def confirmation(order)
-    puts ActionMailer::Base.smtp_settings
+    # puts ActionMailer::Base.smtp_settings # verificación de datos correctos
     @order = order
     attachments.inline['mi-pedido.png'] = create_qr_code("http:www.elmundo.es")
     mail to: order.email, subject: "El Buen Gusto. Confirmación de pedido."
