@@ -1,0 +1,41 @@
+<% provide title: "Recorta tu avatar" %>
+
+<% content_for :styles do %>
+<%= stylesheet_link_tag "Jcrop/jquery.Jcrop" %>
+<% end %>
+
+<% content_for :scripts do %>
+<%= javascript_include_tag "Jcrop/jquery.Jcrop.min" %>
+<script type="text/javascript" charset="utf-8">
+$(function() {
+	$("#crop_image").Jcrop({
+		onChange: crop_info,		// callback en cambio de selección
+		onSelect: crop_info,		// callback en selección
+		setSelect: [0,0,200,200],	// tamaño inicial de la selección
+		aspectRatio: 1				// relación de aspecto bloqueada
+	});
+});
+
+function crop_info (coords) {
+	$('#crop_x').val(coords.x);
+	$('#crop_y').val(coords.y);
+	$('#crop_w').val(coords.w);
+	$('#crop_h').val(coords.h);
+}
+</script>
+<% end %>
+
+
+
+
+<h1><%= yield :title %></h1>
+
+<%= image_tag @user.avatar.url(:original), :id => "crop_image" %>
+
+<%= form_for @user do |f| %>
+<% for attrib in [:crop_x, :crop_y, :crop_w, :crop_h] %>
+<%= f.text_field attrib, id: attrib %>
+<% end %>
+<%= f.submit "Recortar", class: "button" %>
+<% end %>
+

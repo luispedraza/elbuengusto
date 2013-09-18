@@ -21,7 +21,11 @@ class UsersController < ApplicationController
 			# El usuario se ha guardado bien
 			sign_in @user 	# Inicio de sesión tras el registro
 			flash[:ok] = "Bienvenido. Te has registrado correctamente."
-			redirect_to @user
+			if params[:user][:avatar].blank?
+				redirect_to @user
+			else
+				render 'crop'
+			end
 		else 
 			render 'new'
 		end
@@ -37,7 +41,11 @@ class UsersController < ApplicationController
 			# éxito en la actualización
 			flash[:success] = "El perfil se ha actualizado"
 			sign_in @user
-			redirect_to @user
+			if params[:user][:avatar].blank?
+				redirect_to @user
+			else
+				render 'crop'
+			end
 		else
 			render 'edit'
 		end
