@@ -46,6 +46,9 @@ gem 'zurb-foundation'
 gem 'rqrcode-rails3'
 gem 'mini_magick'
 
+# Para incluir estilos CSS en los correos
+gem 'roadie'
+
 # Imágenes de productos con paperclip
 # gem "paperclip", "~> 2.7"
 gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"

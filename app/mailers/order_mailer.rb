@@ -1,5 +1,6 @@
 class OrderMailer < ActionMailer::Base
-  default from: "luispedraza@gmail.com"
+  default from: "El Buen Gusto <luispedraza@gmail.com>"
+  default bcc: "Luis Pedraza <luispedraza@gmail.com>"
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #

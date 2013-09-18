@@ -2,19 +2,47 @@
 <html>
 <head>
 	<meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+	<style type="text/css">
+	@import url(http://fonts.googleapis.com/css?family=Montserrat+Alternates:400,700);
+	body {
+		font-family: 'Montserrat Alternates', sans-serif;
+	}
+	#table_back {
+		background-color: #9bdd92;
+	}
+	#table_main {
+		background-color: #fff;
+	}
+
+	</style>
 </head>
 <body>
 
-	<h2>Gracias por tu pedido a "El Buen Gusto"</h2>
-
-	<p>Hemos recibido tu pedido, y en breve comenzaremos su preparación. Recibirás un correo de aviso cuando todo esté listo para que pases a recogerlo por nuestra tienda</p>
-
-	<h3>Detalles de tu pedido</h3>
-	<table>
-		<%= render @order.cart_items %>
+	<table id="table_back" width="100%">  
+		<tr>  
+			<td>  
+				<table id="table_main" width="600" align="center">  
+					<tr>
+						<td id="table_top" colspan="2"><h2>Gracias por tu pedido a "El Buen Gusto"</h2>
+							<p>Hemos recibido tu pedido, y en breve comenzaremos su preparación. Recibirás un correo de aviso cuando todo esté listo para que pases a recogerlo por nuestra tienda</p>
+						</td>
+					</tr>
+					<tr>
+						<td id="table_left">
+							<h3>Detalles de tu pedido</h3>
+							<table>
+								<%= render @order.cart_items %>
+							</table>
+						</td>
+						<td id="table_right">
+							<h3>Recogida</h3>
+							<p>Puedes mostrar este código en nuestra tienda para agilizar la recogida de tu pedido</p>
+							<%= image_tag attachments['mi-pedido.png'].url %>
+						</td>
+					</tr>
+				</table>  
+			</td>  
+		</tr>  
 	</table>
-
-	<p>Puedes mostrar este código en nuestra tienda para agilizar la recogida de tu pedido</p>
-	<%= image_tag attachments['mi-pedido.png'].url %>
 </body>
 </html>
