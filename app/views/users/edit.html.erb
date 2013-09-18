@@ -2,28 +2,6 @@
 <h1><%= yield :title %></h1>
 
 <div class="row">
-  <ul class="seven columns">
-    <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
-
-      <li class="field">
-        <%= f.label :name, "Nombre", class: "three columns" %>
-        <%= f.text_field :name, class: "four columns text input" %>
-      </li>
-      <li class="field">
-        <%= f.label :email, "E-Mail", class: "three columns" %>
-        <%= f.text_field :email, class: "four columns email input" %>
-      </li>
-      <li class="field">
-        <%= f.label :password, "Password", class: "three columns" %>
-        <%= f.password_field :password, class: "four columns password input" %>
-      </li>
-      <li class="field">
-        <%= f.label :password_confirmation, "Confirma password", class: "three columns" %>
-        <%= f.password_field :password_confirmation, class: "four columns password input" %>
-      </li>
-      <%= f.submit "Guardar los cambios", class: "medium primary btn" %>
-    <% end %>
-
-  </ul>
+  <h2>Modifica tus datos</h2>
+  <%= render 'form' %>
 </div>

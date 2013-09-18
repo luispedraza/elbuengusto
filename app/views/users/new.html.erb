@@ -1,34 +1,8 @@
 <% provide(:title, 'Nuevo Usuario') %>
+
 <h1><%= yield(:title) %></h1>
 
 <div class="row">
-	<fieldset class="ten columns">
-		<legend>Introduce tus datos</legend>
-		<%= form_for(@user) do |f| %>
-
-		<%= render 'shared/error_messages' , object: f.object %>
-		
-		<ul class="seven columns">
-			<li class="field">
-				<%= f.label :name, "Nombre", class: "inline" %>
-				<%= f.text_field :name %>
-			</li>
-			<li class="field">
-				<%= f.label :email, "e-mail" %>
-				<%= f.text_field :email, class: "email" %>
-			</li>
-			<li class="field">
-				<%= f.label :password, "Password" %>
-				<%= f.password_field :password, class: "password" %>
-			</li>
-			<li class="field">
-				<%= f.label :password_confirmation, "Confirmación" %>
-				<%= f.password_field :password_confirmation, class: "password" %>
-			</li>
-			<li>
-				<%= f.file_field :avatar %>
-			<%= f.submit "Crea mi cuenta", class: "medium default btn" %>
-		</ul>
-		<% end %>
-	</fieldset>
+	<h2>Introduce tus datos</h2>
+	<%= render 'form' %>
 </div>
