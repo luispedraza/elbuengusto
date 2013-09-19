@@ -1,4 +1,7 @@
 class Product < ActiveRecord::Base
+	extend FriendlyId
+	friendly_id :name, use: :slugged
+
 	# Relaciones con las categorías
 	has_and_belongs_to_many :categories
 	# Relaciones con las imágenes de producto 
