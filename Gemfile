@@ -32,6 +32,10 @@ gem 'coffee-rails', '4.0.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '2.1.1'
 
+
+# SEO
+gem 'friendly_id', '5.0.0.beta4' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
+
 # Gumby
 # gem "modernizr-rails"
 # gem 'gumby-framework'
