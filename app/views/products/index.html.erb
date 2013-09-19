@@ -23,7 +23,7 @@
         </td>
         <td><%= product.price %></td>
         <td>
-          <%= link_to 'Ver', product %>
+          <%= link_to 'Ver', product, class: "button tiny round" %>
           <%= link_to 'Editar', edit_product_path(product) %>
           <%= link_to 'Borrar', product, method: :delete, data: { confirm: '¿Estás seguro?' } %>
         </td>
