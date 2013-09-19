@@ -1,4 +1,5 @@
 Elbuengusto::Application.routes.draw do
+  get "home/index"
   resources :orders
 
   resources :categories
@@ -18,7 +19,10 @@ Elbuengusto::Application.routes.draw do
   # get "static/help"
   # get "static/about"
   # get "static/contact"
-  root 'static#home'
+  # root 'static#home'
+
+  root 'home#index'
+  
   match '/ayuda',     to: 'static#help',        via: 'get'
   match '/acercade',  to: 'static#about',       via: 'get'
   match '/contacto',  to: 'static#contact',     via: 'get'

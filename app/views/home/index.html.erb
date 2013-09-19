@@ -1,0 +1,15 @@
+<h1>El Buen Gusto</h1>
+<p>Posiblemente, la mejor pastelería de Huelva</p>
+
+<h2>Productos destacados</h2>
+
+<ul data-orbit>
+	<% for product in @front_products %>
+	<li style="background-color:black">
+		<% for image in product.product_images %>
+		<%= image_tag image.photo.url :large %>
+		<%end %>
+		<div class="orbit-caption"><%= "#{product.name}: #{product.description}" %></div>
+	</li>
+	<% end %>
+</ul>
