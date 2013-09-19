@@ -24,7 +24,11 @@ Elbuengusto::Application.routes.draw do
   match '/contacto',  to: 'static#contact',     via: 'get'
 
   # Usuarios
-  resources :users
+  # http://origami.co.uk/blog/2010/02/rails-3-routing-examples
+  resources :users do 
+    put :batch_update, on: :collection
+  end
+
   # Registro de nuevos usuarios
   match '/registro',    to: 'users#new',        via: 'get'
 

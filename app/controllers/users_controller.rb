@@ -62,6 +62,17 @@ class UsersController < ApplicationController
 		redirect_to users_url
 	end
 
+	# Método para actualización en lote de varios usuarios
+	# def batch_update
+	# 	for i in params[:user_id]
+	# 		User.destroy(i)
+	# 	end
+	# 	redirect_to users_path
+	# end
+	def batch_update
+		User.delete_all(["id in (?)", params[:user_id]])
+		redirect_to users_path
+	end
 
 	private
 	def user_params

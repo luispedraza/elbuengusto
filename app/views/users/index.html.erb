@@ -1,16 +1,35 @@
 <% provide(:title, "Todos los usuarios") %>
 <h1><%= yield :title %></h1>
 
-<ul class="users">
+
+<div class="row">
+	<%= link_to "Crear un nuevo usuario", new_user_path, class: "button" %>
+</div>
+
+
+<%= form_tag batch_update_users_path, :method => :put do %>
+<div class="row" id="users">
+<table>
 	<% @users.each do |user| %>
-	<li>
-		<%= link_to user.name, user %>
-		<% if current_user.admin? && !current_user?(user) %>
-		<%= link_to "Borrar", user, method: :delete, data: {confirm: "¿Estás seguro?"} %>
-		<% end %>
-	</li>
+	<tr>	
+		<td>
+			<%= image_tag user.avatar.url(:small) %>
+		</td>
+		<td>
+			<%= link_to user.name, user %>
+		</td>
+		<td>
+			<% if current_user.admin? && !current_user?(user) %>
+			<%= link_to "Borrar", user, method: :delete, data: {confirm: "¿Estás seguro?"}, class: "button" %>
+			<% end %>
+		</td>
+		<td>
+			<%= check_box_tag "user_id[]", user.id %>
+		</td>
+	</tr>
 	<% end %>
-</ul>
+</table>
+</div>
 
-
-<%= link_to "Crear un nuevo usuario", new_user_path, class: "button" %>
+<%= submit_tag "Borrar usuarios seleccionados", class: "button" %>
+<% end %>

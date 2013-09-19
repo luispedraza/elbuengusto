@@ -1,3 +1,7 @@
+// Mis variables
+@import url(http://fonts.googleapis.com/css?family=Rokkitt:400,700);
+$my-font: "Rokkitt";
+
 //
 // Foundation Variables
 //
@@ -54,6 +58,7 @@ $default-float: left;
 // $body-bg: #57dd39;
 // $body-font-color: #222;
 // $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$body-font-family: $my-font, "Helvetica Neue", "Helvetica", Helvetica, sans-serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
 
@@ -161,6 +166,7 @@ $default-float: left;
 // Control header font styles
 
 // $header-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$header-font-family: $my-font, "Helvetica Neue", "Helvetica", Helvetica, sans-serif;
 // $header-font-weight: bold;
 // $header-font-style: normal;
 // $header-font-color: #222;
