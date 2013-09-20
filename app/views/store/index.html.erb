@@ -4,18 +4,29 @@
 
 <h1>La tienda de El Buen Gusto</h1>
 
-<% @products.each do |p| %>
-<div class="item">
-	<h3> <%= p.name %> </h3>
-	<%= sanitize p.description %>
-	<div class="price"> <%= number_to_currency p.price, unit: '€' %> </div>
+<div id="items_list" class="row">
 
-	<div class="add-to-cart">
-		<%= form_tag cart_items_path, remote: true do %>
-		<%= number_field_tag :product_quantity, 1, :class => "spinner", :min => 1 %>
-		<%= hidden_field_tag :product_id, p.id %>
-		<%= submit_tag 'Añadir al carro', class: "button tiny" %>
-		<% end %>
+	<% @products.each do |p| %>
+	<div class="large-4 small-12 columns store_item">
+		<div class="store_item_info">
+			<h3><%= p.name %></h3>
+			<% for image in p.product_images %>
+			<%= image_tag image.photo.url :small %>
+			<% break %>
+			<% end %>
+			
+			<%= sanitize p.description %>
+			<div class="price"> <%= number_to_currency p.price, unit: '€' %> </div>
+		</div>
+
+		<div class="store_item_buy">
+			<%= form_tag cart_items_path, remote: true do %>
+			<%= number_field_tag :product_quantity, 1, :class => "spinner", :min => 1 %>
+			<%= hidden_field_tag :product_id, p.id %>
+			<%= submit_tag 'Añadir al carro', class: "button small round" %>
+			<% end %>
+		</div>
 	</div>
-</div>
-<% end %>
+	<% end %>
+
+</div><!-- #items_list -->
