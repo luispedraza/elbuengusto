@@ -9,6 +9,13 @@
 	<h3> <%= p.name %> </h3>
 	<%= sanitize p.description %>
 	<div class="price"> <%= number_to_currency p.price, unit: '€' %> </div>
-	<%= button_to 'Añadir al carro', cart_items_path(product_id: p.id), remote: true %>
+
+	<div class="add-to-cart">
+		<%= form_tag cart_items_path, remote: true do %>
+		<%= number_field_tag :product_quantity, 1, :class => "spinner", :min => 1 %>
+		<%= hidden_field_tag :product_id, p.id %>
+		<%= submit_tag 'Añadir al carro', class: "button tiny" %>
+		<% end %>
+	</div>
 </div>
 <% end %>

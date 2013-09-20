@@ -19,9 +19,10 @@
 //= require jquery-ui
 //= require foundation
 
-//= require_tree .
+// require_tree .
 
 
+/** FUNCIONES DE ADMINISTRACON **/
 /* Borra los campos para insertar imagen asociada a producto */
 function remove_fields(link) {
 	if (confirm("Vas a borrar una foto")) {
@@ -38,5 +39,7 @@ function add_fields(link, association, content) {
   // $(link).parent().before(content.replace(regexp, new_id));
   $(content.replace(regexp, new_id)).insertBefore($(link));
 }
+/** FIN - FUNCIONES DE ADMINISTRACON **/
 
 $(function(){ $(document).foundation(); });
+// $(function(){ $(".spinner").spinner(); });

@@ -9,5 +9,5 @@
 </table>
 
 
-<%= button_to 'Vaciar el carrito',  cart,  method: :delete, confirm: '¿Confirmas que quieres vaciar el carrito?', class: "button" %>
+<%= button_to 'Vaciar el carrito',  cart,  method: :delete, data: {confirm: '¿Confirmas que quieres vaciar el carrito?'}, class: "button" %>
 <%= button_to 'Realizar el pedido',  new_order_path,  method: :get, class: "button" %>
